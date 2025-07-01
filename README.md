@@ -1,4 +1,4 @@
-# 🚀 LLM-Powered Customer Support Agent  
+# LLM-Powered Customer Support Agent  
 
 **Real-time AI agent to reduce support tickets by 30%**.  
 - **Latency**: <500ms via Redis caching + model quantization  
