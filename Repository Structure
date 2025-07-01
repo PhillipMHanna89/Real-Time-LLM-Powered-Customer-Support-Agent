@@ -1,0 +1,21 @@
+llm-customer-support-agent/  
+├── app/                          # FastAPI backend  
+│   ├── main.py                   # Core API logic  
+│   ├── rag.py                    # Retrieval-Augmented Generation  
+│   ├── cache.py                  # Redis caching  
+│   └── tests/                    # Unit tests  
+│       └── test_api.py  
+├── notebooks/                    # Jupyter notebooks  
+│   ├── fine_tuning.ipynb         # Model fine-tuning  
+│   └── latency_optimization.ipynb  
+├── infra/                        # Deployment scripts  
+│   ├── Dockerfile  
+│   ├── kubernetes.yaml           # K8s config  
+│   └── prometheus_monitoring.yaml  
+├── frontend/                     # Demo UI (optional)  
+│   ├── static/  
+│   └── templates/  
+├── docs/                         # Project documentation  
+│   ├── ARCHITECTURE.md           # System design  
+│   └── API_REFERENCE.md  
+└── README.md                     # Project overview  
