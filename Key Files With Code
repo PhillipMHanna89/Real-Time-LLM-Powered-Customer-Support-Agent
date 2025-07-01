@@ -1,0 +1,24 @@
+from fastapi import FastAPI  
+from pydantic import BaseModel  
+from rag import retrieve_context, generate_answer  
+from cache import get_from_cache, set_in_cache  
+
+app = FastAPI(title="LLM Support Agent")  
+
+class Query(BaseModel):  
+    text: str  
+
+@app.post("/predict")  
+async def predict(query: Query):  
+    # Check cache first  
+    cached_response = get_from_cache(query.text)  
+    if cached_response:  
+        return {"answer": cached_response, "source": "cache"}  
+
+    # Retrieve context and generate answer  
+    context = retrieve_context(query.text)  
+    answer = generate_answer(query.text, context)  
+
+    # Cache result  
+    set_in_cache(query.text, answer)  
+    return {"answer": answer, "source": "llm"}  
